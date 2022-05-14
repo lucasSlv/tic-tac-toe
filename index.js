@@ -40,7 +40,9 @@ function changePlayer() {
   } else {
     currentPlayer = players[1];
   }
+  
 }
+
 
 function setPlayerMovement(position) {
   if (isEmpty(position)) {
@@ -51,11 +53,40 @@ function setPlayerMovement(position) {
   }
 }
 
+function winnerCheck(positions) {
+  if (positions[0] === positions[1] && positions[1] === positions[2]
+      ||
+      positions[3] === positions[4] && positions[4] === positions[5]
+      ||
+      positions[6] === positions[7] && positions[7] === positions[8]
+      ||
+      positions[0] === positions[3] && positions[3] === positions[6]
+      ||
+      positions[1] === positions[4] && positions[4] === positions[7]
+      ||
+      positions[2] === positions[5] && positions[5] === positions[8]
+      ||
+      positions[0] === positions[4] && positions[4] === positions[8]
+      ||
+      positions[6] === positions[4] && positions[4] === positions[2]) {
+        console.log(`TEMOS UM VENCEDOR!`)
+      } else {
+        console.log("DEU VELHA!")
+      }
+    }
+
+
 // showTutorial();
 setPlayerMovement(0);
 setPlayerMovement(1);
 setPlayerMovement(2);
 setPlayerMovement(3);
 setPlayerMovement(4);
+setPlayerMovement(6);
+setPlayerMovement(7);
+setPlayerMovement(5);
+setPlayerMovement(8);
 
 drawBoard(boardData);
+winnerCheck(boardData);
+
